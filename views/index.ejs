@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title><%=title %></title>
-</head>
-
-<body>
-
   <head>
-    <h1><%= title %></h1>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title><%=title %></title>
   </head>
-  <div role="main">
-    <p><%- content %></p>
-    <p><a href="<%=link.href %>"><%=link.text %></a></p>
-  </div>
-</body>
 
+  <body>
+    <head>
+      <h1><%= title %></h1>
+    </head>
+    <div role="main">
+      <p><%- content %></p>
+      <form action="/" method="post">
+        <p>
+          <input type="text" name="message" />
+          <input type="submit" value="送信" />
+        </p>
+      </form>
+    </div>
+  </body>
 </html>

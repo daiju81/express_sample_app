@@ -6,6 +6,13 @@ var app = express();
 app.engine('ejs', ejs.renderFile);
 app.use(express.static('public'));
 
+// 昔のnode.jsバージョンだと下記コメントの手法をつかわなければならない。
+// var bodyParser = require('body-parser');
+// app.use(bodyParser.urlencoded({ extended: false }));
+// node.jsのバージョン(4以降？)によっては下記の使い方ができる。
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.get('/', (req, res) => {
   var msg =
     'This is Express Page!<br>' + 'これは、スタイルシートを利用した例です';
@@ -14,6 +21,18 @@ app.get('/', (req, res) => {
     title: 'Index',
     content: msg,
     link: { href: url, text: '※別のページに移動' },
+  });
+});
+
+app.post('/', (req, res) => {
+  var msg =
+    'This is Posted Page!<br>' +
+    'あなたは「<b>' +
+    req.body.message +
+    '</b>」と送信しました。';
+  res.render('index.ejs', {
+    title: 'Posted',
+    content: msg,
   });
 });
 
