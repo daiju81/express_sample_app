@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:node/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["node"],
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "rules": {
+    "node/exports-style": "error", //`module.exports`と`exports.*`を混ぜて使うと警告します。
+    "node/no-missing-import": "warn", //`import`構文で存在しないファイルを読もうとすると警告します。
+    "node/no-missing-require": "true", //`require()`で存在しないファイルを読もうとすると警告します。
+    "node/no-unpublished-bin": "error", //CLIのエントリポイントが無視リストに入っていた場合に警告します。
+    "node/no-unpublished-import": "error", //`import`構文で公開後に読めなくなるモジュールを読もうとすると警告します。
+    "node/no-unsupported-features": "error", //指定したNode.jsのバージョンでサポートされていない構文を使おうとすると警告します。
+    "node/process-exit-as-throw": "error" //`process.exit()`の実行パスを修正します。
+  }
+}
