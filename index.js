@@ -13,14 +13,19 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+var data = {
+  Taro: 'taro@yamada',
+  Hanako: 'hanako@yamada',
+  Sachiko: 'sachiko@yamada',
+  Ichiro: 'ichiro@yamada',
+};
+
 app.get('/', (req, res) => {
-  var msg =
-    'This is Express Page!<br>' + 'これは、スタイルシートを利用した例です';
-  var url = '/other?name=taro&pass=yamada';
+  var msg = 'This is Express Page!<br>' + '※データを表示します';
   res.render('index.ejs', {
     title: 'Index',
     content: msg,
-    link: { href: url, text: '※別のページに移動' },
+    data: data,
   });
 });
 
